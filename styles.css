@@ -7,8 +7,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    cursor: none; /* Hide default cursor */
     overflow-x: hidden;
+    cursor: default; /* back to normal */
   }
   
   /* -------- Layout -------- */
@@ -47,7 +47,7 @@ body {
   /* Glow on heading when visible */
   h2.glow {
     color: #000;
-    text-shadow: 0 0 12px rgba(79, 74, 91, 0.871);
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
   
   /* -------- Lists -------- */
@@ -78,7 +78,7 @@ body {
   }
   
   a:hover {
-    color: #7990b9;
+    color: #8380be;
     border-color: #000;
   }
   
@@ -100,28 +100,5 @@ body {
     h1 {
       font-size: 2rem;
     }
-  }
-  
-  /* -------- Elegant Cursor -------- */
-  .cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid rgba(17, 17, 17, 0.8);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out, width 0.2s, height 0.2s, border-color 0.3s;
-    z-index: 9999;
-  }
-  
-  /* Cursor expands slightly on interactive elements */
-  a:hover ~ .cursor-ring,
-  li:hover ~ .cursor-ring {
-    width: 40px;
-    height: 40px;
-    border-color: #000;
   }
   
