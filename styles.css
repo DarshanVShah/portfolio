@@ -1,0 +1,86 @@
+/* -------- Base Style -------- */
+body {
+    background-color: #fafafa;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* -------- Layout -------- */
+  main {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  /* -------- Typography -------- */
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .tagline {
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    text-transform: lowercase;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+  
+  li {
+    margin-bottom: 0.4rem;
+  }
+  
+  /* -------- Links -------- */
+  a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  
+  a:hover {
+    color: #000;
+    border-color: #000;
+  }
+  
+  /* -------- Footer -------- */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* -------- Responsive -------- */
+  @media (max-width: 600px) {
+    main {
+      margin: 40px auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
