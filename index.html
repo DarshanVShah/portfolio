@@ -78,20 +78,32 @@
           entry.target.classList.remove('glow');
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.6 });
   
-    document.querySelectorAll('h2').forEach(h => observer.observe(h));
+    document.querySelectorAll('h2, li').forEach(el => observer.observe(el));
   
-    // --- Custom Cursor ---
-    const cursor = document.createElement('div');
-    cursor.classList.add('cursor-dot');
-    document.body.appendChild(cursor);
+    // --- Custom Cursor (Ring) ---
+    const ring = document.createElement('div');
+    ring.classList.add('cursor-ring');
+    document.body.appendChild(ring);
+  
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
   
     window.addEventListener('mousemove', e => {
-      cursor.style.top = e.clientY + 'px';
-      cursor.style.left = e.clientX + 'px';
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     });
+  
+    function animate() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
+  
   
 </body>
 </html>

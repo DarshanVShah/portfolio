@@ -44,12 +44,13 @@ body {
     transition: color 0.4s ease, text-shadow 0.4s ease;
   }
   
-  /* Glow class added dynamically by JS */
+  /* Glow on heading when visible */
   h2.glow {
     color: #000;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 0 12px rgba(79, 74, 91, 0.871);
   }
   
+  /* -------- Lists -------- */
   ul {
     list-style: none;
     padding: 0;
@@ -58,6 +59,14 @@ body {
   
   li {
     margin-bottom: 0.4rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  /* Glow on list item when visible or hovered */
+  li.glow,
+  li:hover {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: #000;
   }
   
   /* -------- Links -------- */
@@ -69,7 +78,7 @@ body {
   }
   
   a:hover {
-    color: #000;
+    color: #7990b9;
     border-color: #000;
   }
   
@@ -93,18 +102,26 @@ body {
     }
   }
   
-  /* -------- Custom Cursor -------- */
-  .cursor-dot {
+  /* -------- Elegant Cursor -------- */
+  .cursor-ring {
     position: fixed;
     top: 0;
     left: 0;
-    width: 10px;
-    height: 10px;
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(17, 17, 17, 0.8);
     border-radius: 50%;
-    background: rgba(17, 17, 17, 0.8);
     pointer-events: none;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
+    transition: transform 0.1s ease-out, width 0.2s, height 0.2s, border-color 0.3s;
     z-index: 9999;
+  }
+  
+  /* Cursor expands slightly on interactive elements */
+  a:hover ~ .cursor-ring,
+  li:hover ~ .cursor-ring {
+    width: 40px;
+    height: 40px;
+    border-color: #000;
   }
   
