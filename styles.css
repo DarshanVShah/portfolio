@@ -7,6 +7,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    cursor: none; /* Hide default cursor */
+    overflow-x: hidden;
   }
   
   /* -------- Layout -------- */
@@ -39,6 +41,13 @@ body {
     margin-top: 2.5rem;
     margin-bottom: 0.8rem;
     text-transform: lowercase;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+  
+  /* Glow class added dynamically by JS */
+  h2.glow {
+    color: #000;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
   
   ul {
@@ -82,5 +91,20 @@ body {
     h1 {
       font-size: 2rem;
     }
+  }
+  
+  /* -------- Custom Cursor -------- */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(17, 17, 17, 0.8);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 9999;
   }
   
