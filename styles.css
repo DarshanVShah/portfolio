@@ -7,17 +7,17 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    cursor: default;
     overflow-x: hidden;
-    cursor: default; /* back to normal */
   }
-  
+
   /* -------- Layout -------- */
   main {
     max-width: 700px;
     margin: 60px auto;
     padding: 0 20px;
   }
-  
+
   /* -------- Typography -------- */
   h1 {
     font-family: 'Playfair Display', serif;
@@ -25,7 +25,7 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0.3rem;
   }
-  
+
   .tagline {
     color: #555;
     font-size: 0.95rem;
@@ -33,7 +33,7 @@ body {
     margin-bottom: 2rem;
     font-style: italic;
   }
-  
+
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
@@ -44,31 +44,22 @@ body {
     transition: color 0.4s ease, text-shadow 0.4s ease;
   }
   
-  /* Glow on heading when visible */
+  /* Glow class added dynamically by JS */
   h2.glow {
     color: #000;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
-  
-  /* -------- Lists -------- */
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0 0 1.5rem 0;
   }
-  
+
   li {
     margin-bottom: 0.4rem;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
   }
-  
-  /* Glow on list item when visible or hovered */
-  li.glow,
-  li:hover {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    color: #000;
-  }
-  
+
   /* -------- Links -------- */
   a {
     color: #111;
@@ -76,12 +67,12 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     transition: border-color 0.2s ease, color 0.2s ease;
   }
-  
+
   a:hover {
-    color: #8380be;
+    color: #6791c0;
     border-color: #000;
   }
-  
+
   /* -------- Footer -------- */
   footer {
     margin-top: 3rem;
@@ -91,7 +82,7 @@ body {
     color: #666;
     text-align: center;
   }
-  
+
   /* -------- Responsive -------- */
   @media (max-width: 600px) {
     main {
@@ -101,4 +92,3 @@ body {
       font-size: 2rem;
     }
   }
-  
