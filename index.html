@@ -12,7 +12,7 @@
   <main>
     <header>
       <h1>Darshan Shah.</h1>
-      <p class="tagline">don't know how i got here, but i love adventures.</p>
+      <p class="tagline">a man who loves adventures.</p>
     </header>
 
     <section>
@@ -66,6 +66,8 @@
     </footer>
   </main>
 
+  <div class="cursor-blob"></div>
+
   <script>
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -82,6 +84,15 @@
     }, { threshold: 0.3 });
   
     document.querySelectorAll('h2, li').forEach(el => observer.observe(el));
+
+    document.addEventListener('mousemove', (e) => {
+        const cursorBlob = document.querySelector('.cursor-blob');
+        if (cursorBlob) {
+            cursorBlob.style.left = `${e.clientX - cursorBlob.offsetWidth / 2}px`;
+            cursorBlob.style.top = `${e.clientY - cursorBlob.offsetHeight / 2}px`;
+        }
+    });
+
   </script>  
   
 </body>
