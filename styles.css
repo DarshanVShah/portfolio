@@ -1,23 +1,24 @@
 /* -------- Base Style -------- */
 body {
-    background-color: #fafafa;
+    background: #fafafa;
     color: #111;
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    cursor: none;
+    cursor: default;
     overflow-x: hidden;
+    transition: background 1s ease;
   }
-
+  
   /* -------- Layout -------- */
   main {
     max-width: 700px;
     margin: 60px auto;
     padding: 0 20px;
   }
-
+  
   /* -------- Typography -------- */
   h1 {
     font-family: 'Playfair Display', serif;
@@ -25,7 +26,7 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0.3rem;
   }
-
+  
   .tagline {
     color: #555;
     font-size: 0.95rem;
@@ -33,7 +34,7 @@ body {
     margin-bottom: 2rem;
     font-style: italic;
   }
-
+  
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
@@ -44,22 +45,31 @@ body {
     transition: color 0.4s ease, text-shadow 0.4s ease;
   }
   
-  /* Glow class added dynamically by JS */
+  /* Glow effect on scroll */
   h2.glow {
     color: #000;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   }
-
+  
+  /* -------- Lists -------- */
   ul {
     list-style: none;
     padding: 0;
     margin: 0 0 1.5rem 0;
   }
-
+  
   li {
     margin-bottom: 0.4rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease;
   }
-
+  
+  li.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   /* -------- Links -------- */
   a {
     color: #111;
@@ -67,12 +77,12 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     transition: border-color 0.2s ease, color 0.2s ease;
   }
-
+  
   a:hover {
     color: #6791c0;
     border-color: #000;
   }
-
+  
   /* -------- Footer -------- */
   footer {
     margin-top: 3rem;
@@ -82,7 +92,96 @@ body {
     color: #666;
     text-align: center;
   }
-
+  
+  /* -------- Explore Tiles -------- */
+  #explore {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .tile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  
+  .tile {
+    display: block;
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .tile::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #6791c0, #c06791);
+    transition: width 0.3s ease;
+  }
+  
+  .tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    background: #fafafa;
+  }
+  
+  .tile:hover::after {
+    width: 100%;
+  }
+  
+  .tile-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .tile.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+  }
+  
+  /* -------- Soft Gradient Blob -------- */
+  .cursor-blob {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(103,145,192,0.15), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+    transition: transform 0.2s ease;
+  }
+  
+  /* -------- Progress Bar -------- */
+  #progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(to right, #6791c0, #c06791);
+    width: 0%;
+    z-index: 999;
+    transition: width 0.1s linear;
+  }
+  
   /* -------- Responsive -------- */
   @media (max-width: 600px) {
     main {
@@ -91,17 +190,6 @@ body {
     h1 {
       font-size: 2rem;
     }
+    .cursor-blob { display: none; } /* hide blob on mobile */
   }
-
-  .cursor-blob {
-    position: fixed; /* Or 'absolute' depending on context */
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 0, 255, 0.5); /* Example: Purple glow */
-    border-radius: 50%;
-    filter: blur(20px); /* Adjust blur for intensity */
-    pointer-events: none; /* Important! */
-    z-index: 9999; /* Ensure it stays on top */
-  }
+  

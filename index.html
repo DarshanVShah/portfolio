@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Darshan Shah</title>
-  <link rel="icon" type="image/png" href="Ds.png">
+  <link rel="icon" type="image/png" href="assets/Ds.png">
   <link rel="stylesheet" href="styles.css?v=2" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 </head>
@@ -61,6 +61,23 @@
       </p>
     </section>
 
+    <section id="explore">
+        <h2>explore more</h2>
+        <div class="tile-container">
+          <a href="#" class="tile">
+            <div class="tile-title">resume</div>
+          </a>
+          <a href="#" class="tile">
+            <div class="tile-title">writings</div>
+            <p>my thoughts.</p>
+          </a>
+          <a href="#" class="tile">
+            <div class="tile-title">projects</div>
+            <p>deep dive.</p>
+          </a>
+        </div>
+      </section>
+
     <footer>
       <p>© <span id="year"></span> Darshan Shah</p>
     </footer>
@@ -69,31 +86,49 @@
   <div class="cursor-blob"></div>
 
   <script>
-    // Set current year
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   
-    // --- Scroll Glow Effect for h2 and li ---
+    // --- Scroll Glow + Fade-in ---
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('glow');
-        } else {
-          entry.target.classList.remove('glow');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('glow', 'visible');
+        else entry.target.classList.remove('glow', 'visible');
       });
     }, { threshold: 0.3 });
   
-    document.querySelectorAll('h2, li').forEach(el => observer.observe(el));
-
-    document.addEventListener('mousemove', (e) => {
-        const cursorBlob = document.querySelector('.cursor-blob');
-        if (cursorBlob) {
-            cursorBlob.style.left = `${e.clientX - cursorBlob.offsetWidth / 2}px`;
-            cursorBlob.style.top = `${e.clientY - cursorBlob.offsetHeight / 2}px`;
-        }
+    document.querySelectorAll('h2, li, .tile').forEach(el => observer.observe(el));
+  
+    // --- Progress Bar ---
+    const progress = document.createElement('div');
+    progress.id = 'progress';
+    document.body.appendChild(progress);
+    window.addEventListener('scroll', () => {
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / docHeight) * 100;
+      progress.style.width = pct + '%';
     });
+  
+    // --- Soft Gradient Blob (colour accent) ---
+    const blob = document.querySelector('.cursor-blob');
+    window.addEventListener('mousemove', e => {
+      blob.style.transform = `translate(${e.clientX - 100}px, ${e.clientY - 100}px)`;
+    });
+  </script>
+  
 
-  </script>  
+<style>
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, #6791c0, #c06791);
+      width: 0%;
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
+</style>
   
 </body>
 </html>
