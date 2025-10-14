@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Darkness Unleashed | Writings</title>
+  <link rel="icon" type="image/png" href="assets/Ds.png">
+  <link rel="stylesheet" href="../styles.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div class="blog-post">
+      <div class="back-to-writings">
+        <a href="../writings.html">← Back to Writings</a>
+      </div>
+
+      <div class="blog-header">
+        <h1 class="blog-title">The Darkness Unleashed</h1>
+        <div class="blog-meta">Written in 2024</div>
+      </div>
+
+      <div class="blog-content">
+        <h2>Embracing the Shadows</h2>
+        <p>In the depths of challenge lies the greatest opportunity for growth. "The Darkness Unleashed" explores the transformative power of facing our greatest obstacles head-on and emerging stronger on the other side.</p>
+
+        <blockquote>
+          "It's not about avoiding the darkness, but learning to dance with it."
+        </blockquote>
+
+        <h2>The Journey Through Adversity</h2>
+        <p>Every great achievement begins with the willingness to step into the unknown. This piece examines how the darkest moments often contain the seeds of our greatest victories. It's not about avoiding the darkness, but learning to dance with it.</p>
+
+        <p>Throughout my journey—from robotics competitions to leadership roles, from entrepreneurial ventures to academic challenges—I've discovered that the most profound growth occurs when we're willing to confront what we fear most.</p>
+
+        <h2>Transformation and Resilience</h2>
+        <p>Through personal anecdotes and reflections, this writing explores how challenges in robotics competitions, leadership roles, and entrepreneurial ventures have shaped character and built resilience. The darkness, when embraced properly, becomes a catalyst for innovation and growth.</p>
+
+        <h3>The Robotics Competition That Changed Everything</h3>
+        <p>There was a moment during a particularly challenging robotics competition when everything seemed to fall apart. The code wasn't working, the mechanical systems were failing, and time was running out. In that moment of darkness, I discovered something profound about myself.</p>
+
+        <h3>Leading Through Uncertainty</h3>
+        <p>As Student Council Co-President, I faced the challenge of implementing systematic changes that would make our organization more equitable. The resistance was significant, the path unclear, but the darkness of uncertainty became the birthplace of innovation.</p>
+
+        <h3>The Entrepreneurial Leap</h3>
+        <p>Starting Stitches, the mental health awareness clothing brand, required stepping into unknown territory. The darkness of the unknown became the canvas upon which creativity and impact could flourish.</p>
+
+        <h2>Light Emerging</h2>
+        <p>Ultimately, this piece is about hope and the inevitable emergence of light after darkness. It's about how every setback in building robots, every failed pitch for a club, and every challenge in creating solutions for mental health awareness has contributed to a stronger, more capable individual.</p>
+
+        <p>The darkness, when properly understood and embraced, becomes not an enemy to be feared, but a teacher to be learned from. It is in the depths that we discover our true strength, our capacity for innovation, and our ability to create light where none existed before.</p>
+
+        <blockquote>
+          "The most profound innovations are born not in the light of certainty, but in the fertile darkness of possibility."
+        </blockquote>
+
+        <h2>Conclusion</h2>
+        <p>As I continue my journey through software engineering, leadership, and creation, I carry with me the lessons learned in the darkness. Each challenge faced, each obstacle overcome, has been a step toward becoming the person I was meant to be—someone who doesn't just survive the darkness, but thrives within it.</p>
+      </div>
+
+      <div class="blog-navigation">
+        <a href="stage-vi.html" class="nav-link">← Previous</a>
+        <a href="wind-powered-car.html" class="nav-link">Next →</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>© <span id="year"></span> Darshan Shah</p>
+    </footer>
+  </main>
+
+  <div class="cursor-blob"></div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+   
+    // --- Scroll Glow + Fade-in ---
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('glow', 'visible');
+        else entry.target.classList.remove('glow', 'visible');
+      });
+    }, { threshold: 0.3 });
+   
+    document.querySelectorAll('h2, h3, p').forEach(el => observer.observe(el));
+  
+    // --- Progress Bar ---
+    const progress = document.createElement('div');
+    progress.id = 'progress';
+    document.body.appendChild(progress);
+    window.addEventListener('scroll', () => {
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / docHeight) * 100;
+      progress.style.width = pct + '%';
+    });
+  
+    // --- Soft Gradient Blob (colour accent) ---
+    const blob = document.querySelector('.cursor-blob');
+    window.addEventListener('mousemove', e => {
+      blob.style.transform = `translate(${e.clientX - 100}px, ${e.clientY - 100}px)`;
+    });
+  </script>
+
+  <style>
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, #6791c0, #c06791);
+      width: 0%;
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
+  </style>
+   
+</body>
+</html>
