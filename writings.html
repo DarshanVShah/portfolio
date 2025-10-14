@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writings - Darshan Shah</title>
+  <link rel="icon" type="image/png" href="assets/Ds.png">
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <header>
+      <h1><a href="index.html" style="color: inherit; text-decoration: none;">Darshan Shah.</a></h1>
+      <p class="tagline">my thoughts and writings.</p>
+    </header>
+
+    <section>
+      <h2>writings</h2>
+      <div class="card-container">
+        <!-- Sample writing cards - ready for content -->
+        <div class="writing-card">
+          <div class="card-header">
+            <h3 class="card-title">The Journey of Innovation</h3>
+            <span class="card-date">January 2024</span>
+          </div>
+          <p class="card-description">Exploring the intersection of technology and creativity in modern software development.</p>
+          <div class="card-tags">
+            <span class="tag">innovation</span>
+            <span class="tag">technology</span>
+          </div>
+        </div>
+
+        <div class="writing-card">
+          <div class="card-header">
+            <h3 class="card-title">Building Communities Through Code</h3>
+            <span class="card-date">December 2023</span>
+          </div>
+          <p class="card-description">How programming can bring people together and create meaningful connections in the digital age.</p>
+          <div class="card-tags">
+            <span class="tag">community</span>
+            <span class="tag">programming</span>
+          </div>
+        </div>
+
+        <div class="writing-card">
+          <div class="card-header">
+            <h3 class="card-title">Lessons from Leadership</h3>
+            <span class="card-date">November 2023</span>
+          </div>
+          <p class="card-description">Reflections on leading student organizations and the importance of inclusive decision-making.</p>
+          <div class="card-tags">
+            <span class="tag">leadership</span>
+            <span class="tag">student life</span>
+          </div>
+        </div>
+
+        <div class="writing-card">
+          <div class="card-header">
+            <h3 class="card-title">The Future of AI in Education</h3>
+            <span class="card-date">October 2023</span>
+          </div>
+          <p class="card-description">Examining how artificial intelligence can enhance learning experiences while maintaining human connection.</p>
+          <div class="card-tags">
+            <span class="tag">ai</span>
+            <span class="tag">education</span>
+            <span class="tag">future</span>
+          </div>
+        </div>
+
+        <div class="writing-card">
+          <div class="card-header">
+            <h3 class="card-title">Mental Health in Tech</h3>
+            <span class="card-date">September 2023</span>
+          </div>
+          <p class="card-description">Addressing the importance of mental health awareness in the technology industry and student life.</p>
+          <div class="card-tags">
+            <span class="tag">mental health</span>
+            <span class="tag">tech industry</span>
+          </div>
+        </div>
+
+        <div class="writing-card">
+          <div class="card-header">
+            <h3 class="card-title">From Robotics to Software</h3>
+            <span class="card-date">August 2023</span>
+          </div>
+          <p class="card-description">My personal journey from hardware tinkering to software engineering and the lessons learned along the way.</p>
+          <div class="card-tags">
+            <span class="tag">personal journey</span>
+            <span class="tag">robotics</span>
+            <span class="tag">career</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Darshan Shah</p>
+    </footer>
+  </main>
+
+  <div class="cursor-blob"></div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+   
+    // --- Scroll Glow + Fade-in ---
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('glow', 'visible');
+        else entry.target.classList.remove('glow', 'visible');
+      });
+    }, { threshold: 0.3 });
+   
+    document.querySelectorAll('h2, .writing-card').forEach(el => observer.observe(el));
+  
+    // --- Progress Bar ---
+    const progress = document.createElement('div');
+    progress.id = 'progress';
+    document.body.appendChild(progress);
+    window.addEventListener('scroll', () => {
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / docHeight) * 100;
+      progress.style.width = pct + '%';
+    });
+  
+    // --- Soft Gradient Blob (colour accent) ---
+    const blob = document.querySelector('.cursor-blob');
+    window.addEventListener('mousemove', e => {
+      blob.style.transform = `translate(${e.clientX - 100}px, ${e.clientY - 100}px)`;
+    });
+  </script>
+
+  <style>
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, #6791c0, #c06791);
+      width: 0%;
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
+  </style>
+   
+</body>
+</html>

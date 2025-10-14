@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Darshan Shah</title>
+  <link rel="icon" type="image/png" href="assets/Ds.png">
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <header>
+      <h1><a href="index.html" style="color: inherit; text-decoration: none;">Darshan Shah.</a></h1>
+      <p class="tagline">my projects and creations.</p>
+    </header>
+
+    <section>
+      <h2>projects</h2>
+      <div class="card-container">
+        <!-- Sample project cards - ready for content -->
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">HoopsIQ - NBA Prediction ML Pipeline</h3>
+            <span class="card-date">January 2024</span>
+          </div>
+          <p class="card-description">Machine learning pipeline that predicts NBA game outcomes using 7 seasons of historical data, featuring advanced statistical modeling and real-time predictions.</p>
+          <div class="card-tags">
+            <span class="tag">machine learning</span>
+            <span class="tag">python</span>
+            <span class="tag">data science</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">View Project</a>
+            <a href="#" class="card-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">AirCAD - 3D Gesture Drawing</h3>
+            <span class="card-date">December 2023</span>
+          </div>
+          <p class="card-description">Web application that allows users to draw 3D shapes in the air using hand gestures, combining computer vision with interactive 3D modeling.</p>
+          <div class="card-tags">
+            <span class="tag">computer vision</span>
+            <span class="tag">javascript</span>
+            <span class="tag">webgl</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">Live Demo</a>
+            <a href="#" class="card-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">VectorView - Vector Visualization</h3>
+            <span class="card-date">November 2023</span>
+          </div>
+          <p class="card-description">Interactive web application that visualizes the mathematical relationships between vector sets, making abstract concepts tangible through dynamic graphics.</p>
+          <div class="card-tags">
+            <span class="tag">mathematics</span>
+            <span class="tag">visualization</span>
+            <span class="tag">education</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">Try It</a>
+            <a href="#" class="card-link">Documentation</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">Stitches - Mental Health Clothing Brand</h3>
+            <span class="card-date">October 2023</span>
+          </div>
+          <p class="card-description">Co-founded a clothing brand that raises awareness for mental health, generating $3,500+ in revenue with $1,000 donated to Jack.org for youth mental health support.</p>
+          <div class="card-tags">
+            <span class="tag">entrepreneurship</span>
+            <span class="tag">social impact</span>
+            <span class="tag">business</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">Computer Vision Accessibility App</h3>
+            <span class="card-date">September 2023</span>
+          </div>
+          <p class="card-description">Developed at Shad Valley, this app aids the visually impaired by converting visual cues into auditory stimuli, making the world more accessible through technology.</p>
+          <div class="card-tags">
+            <span class="tag">accessibility</span>
+            <span class="tag">mobile app</span>
+            <span class="tag">computer vision</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">Case Study</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">LeBron James Fan Website</h3>
+            <span class="card-date">August 2023</span>
+          </div>
+          <p class="card-description">My first web development project - a comprehensive fan site celebrating LeBron James' career, featuring stats, highlights, and interactive elements.</p>
+          <div class="card-tags">
+            <span class="tag">web development</span>
+            <span class="tag">first project</span>
+            <span class="tag">sports</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">View Site</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3 class="card-title">Commercial Mobile Game (In Development)</h3>
+            <span class="card-date">Ongoing</span>
+          </div>
+          <p class="card-description">Currently developing my first commercial mobile game, combining my passions for art and coding to create an engaging gaming experience.</p>
+          <div class="card-tags">
+            <span class="tag">game development</span>
+            <span class="tag">mobile</span>
+            <span class="tag">art</span>
+            <span class="tag">in progress</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Darshan Shah</p>
+    </footer>
+  </main>
+
+  <div class="cursor-blob"></div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+   
+    // --- Scroll Glow + Fade-in ---
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('glow', 'visible');
+        else entry.target.classList.remove('glow', 'visible');
+      });
+    }, { threshold: 0.3 });
+   
+    document.querySelectorAll('h2, .project-card').forEach(el => observer.observe(el));
+  
+    // --- Progress Bar ---
+    const progress = document.createElement('div');
+    progress.id = 'progress';
+    document.body.appendChild(progress);
+    window.addEventListener('scroll', () => {
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / docHeight) * 100;
+      progress.style.width = pct + '%';
+    });
+  
+    // --- Soft Gradient Blob (colour accent) ---
+    const blob = document.querySelector('.cursor-blob');
+    window.addEventListener('mousemove', e => {
+      blob.style.transform = `translate(${e.clientX - 100}px, ${e.clientY - 100}px)`;
+    });
+  </script>
+
+  <style>
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, #6791c0, #c06791);
+      width: 0%;
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
+  </style>
+   
+</body>
+</html>
