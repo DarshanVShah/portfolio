@@ -568,6 +568,41 @@ body {
        gap: 1rem;
        text-align: center;
      }
+     
+     /* Fix horizontal scrolling on mobile */
+     .blog-content ol li {
+       word-break: break-all;
+       overflow-wrap: break-word;
+       hyphens: auto;
+       max-width: 100%;
+     }
+     
+     .blog-content ol {
+       overflow-x: hidden;
+       word-wrap: break-word;
+     }
+     
+     /* Ensure images don't cause horizontal scroll */
+     .blog-content img {
+       max-width: 100% !important;
+       height: auto !important;
+     }
+     
+     /* Fix calculation boxes on mobile */
+     .blog-content .calculation {
+       padding: 1rem;
+       margin: 1.5rem 0;
+     }
+     
+     .blog-content .calculation-formula {
+       font-size: 1rem;
+       padding: 0.75rem;
+     }
+     
+     .blog-content .calculation-step {
+       font-size: 0.9rem;
+       padding-left: 0.5rem;
+     }
    }
    
    /* -------- Modal System -------- */
