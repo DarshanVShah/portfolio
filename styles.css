@@ -19,6 +19,34 @@ body {
     padding: 0 20px;
   }
   
+  /* -------- Profile Section -------- */
+  .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid rgba(103, 145, 192, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(103, 145, 192, 0.3);
+  }
+  
+  .header-text {
+    flex: 1;
+  }
+
   /* -------- Typography -------- */
   h1 {
     font-family: 'Playfair Display', serif;
@@ -781,5 +809,17 @@ body {
       font-size: 2rem;
     }
     .cursor-blob { display: none; } /* hide blob on mobile */
+    
+    /* Mobile profile section */
+    .profile-section {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+    }
   }
   
